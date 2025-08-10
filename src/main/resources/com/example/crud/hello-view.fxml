@@ -5,9 +5,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crud.HelloController">
    <center>
-      <Pane>
-         <Button layoutX="263.0" layoutY="308.0" mnemonicParsing="false" text="Agregar tarea" />
-      <TableView layoutX="38.0" layoutY="21.0" prefHeight="280.0" prefWidth="540.0">
+      <Pane fx:id="contenedorCentral">
+         <Button layoutX="263.0" layoutY="308.0" mnemonicParsing="false" onMouseClicked="#crearTareas" text="Agregar tarea" />
+      <TableView fx:id="tableTareas" layoutX="38.0" layoutY="21.0" prefHeight="280.0" prefWidth="540.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="colTitulo" prefWidth="75.0" text="Titulo" />
