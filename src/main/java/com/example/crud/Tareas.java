@@ -1,36 +1,33 @@
 package com.example.crud;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tareas {
 
-    private final StringProperty id;
-    private final StringProperty titulo;
-    private final StringProperty descripcion;
-    private final StringProperty prioridad;
-    private final StringProperty fechalimite;
-
-    public Tareas(String id, String titulo, String descipcion, String prioridad, String fechalimite) {
-
-        this.id = new SimpleStringProperty(id);
-        this.titulo = new SimpleStringProperty(titulo);
-        this.descripcion = new SimpleStringProperty(descipcion);
-        this.prioridad = new SimpleStringProperty(prioridad);
-        this.fechalimite = new SimpleStringProperty(fechalimite);
-
+    private List<Tarea> tareas = new ArrayList<>(); // Lista para almacenar las tareas
+    private int nextId = 1; // Contador para asignar IDs únicos a las tareas
+    // Método para obtener todas las tareas
+    public List<Tarea> findAll() {
+        return tareas; // Devuelve la lista de tareas
     }
-
-    public String getId() { return id.get(); }
-
-    public String getTitulo() {
-        return titulo.get();
+    // Método para agregar una nueva tarea
+    public void add(Tarea tarea) {
+        tarea.setId(nextId++); // Asigna un ID único a la tarea y aumenta el contador
+        tareas.add(tarea); // Agrega la tarea a la lista
     }
-
-    public String getDescripcion() { return descripcion.get(); }
-
-    public String getPrioridad() { return prioridad.get(); }
-
-    public String getFechalimite() { return fechalimite.get(); }
-
+    // Método para actualizar una tarea existente
+    public void update(Tarea tarea) {
+        // Busca la tarea en la lista y la actualiza
+        for (int i = 0; i < tareas.size(); i++) {
+            if (tareas.get(i).getId() == tarea.getId()) {
+                tareas.set(i, tarea); // Reemplaza la tarea existente con la nueva
+                break; // Sale del bucle una vez que se encuentra la tarea
+            }
+        }
+    }
+    // Método para eliminar una tarea
+    public void delete(Tarea tarea) {
+        tareas.remove(tarea); // Elimina la tarea de la lista
+    }
 }

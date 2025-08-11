@@ -6,6 +6,7 @@ module com.example.crud {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires java.desktop;
 
     opens com.example.crud to javafx.fxml;
     exports com.example.crud;
